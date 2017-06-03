@@ -1,0 +1,6 @@
+[submodule "extern/trim"]
+	path = extern/trim
+	url = https://github.com/gvre/gtrim.git
+[submodule "extern/getline"]
+	path = extern/getline
+	url = https://github.com/d3m3vilurr/getline.git
