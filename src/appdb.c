@@ -34,22 +34,28 @@ static int get_applist_callback(void *data, int argc, char **argv, char **cols) 
 }
 
 int get_applist(applist *list) {
-    char *query = "select a.titleid, b.realid, c.title, d.ebootbin,"
-                  "       rtrim(substr(d.ebootbin, 0, 5), ':') as dev"
-                  "  from (select titleid"
-                  "          from tbl_appinfo"
-                  "         where key = 566916785"
-                  "         order by titleid) a,"
-                  "       (select titleid, val as realid"
-                  "          from tbl_appinfo"
-                  "         where key = 278217076) b,"
-                  "       tbl_appinfo_icon c,"
-                  "       (select titleid, val as ebootbin"
-                  "          from tbl_appinfo"
-                  "         where key = 3022202214) d"
-                  " where a.titleid = b.titleid"
-                  "   and a.titleid = c.titleid"
-                  "   and a.titleid = d.titleid";
+    char *query = "select a.titleid,"
+                  "       (ifnull(("
+                  "         select x.val"
+                  "           from tbl_appinfo x"
+                  "          where x.key = 278217076"
+                  "            and x.titleid = a.titleid"
+                  "          limit 1"
+                  "       ), a.titleid)) as realid,"
+                  "       (ifnull(("
+                  "         select ''"
+                  "           from tbl_appinfo_icon x"
+                  "          where x.titleid = a.titleid"
+                  "          limit 1"
+                  "       ), '(' || a.titleid || ') ') || a.val) as title,"
+                  "       b.val as ebootbin,"
+                  "       rtrim(substr(b.val, 0, 5), ':') as dev"
+                  "  from tbl_appinfo a,"
+                  "       tbl_appinfo b"
+                  " where a.key = 572932585"
+                  "   and b.key = 3022202214"
+                  "   and a.titleid = b.titleid"
+                  " order by a.titleid";
 
     sqlite3 *db;
     int ret = sqlite3_open(APP_DB, &db);
