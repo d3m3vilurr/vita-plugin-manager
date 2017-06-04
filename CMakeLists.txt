@@ -6,7 +6,7 @@ set(CMAKE_C_COMPILER "arm-vita-eabi-gcc")
 project(taiplgmgr)
 set(TITLE_ID "TAIPLGMGR")
 set(TITLE "taiHEN Plugin Manager")
-set(VERSION "0.1.0")
+set(VERSION "0.2.0")
 
 execute_process(COMMAND
     python -c "print '%02d.%02d' % tuple(map(lambda x: int(x), '${VERSION}'.split('.')[:2]))"
