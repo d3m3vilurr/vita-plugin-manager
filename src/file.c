@@ -15,15 +15,17 @@
 char *special_kernel_plugins[] = {
     // auto load
     // "ur0:tai/henkaku.skprx",
+    "ux0:adrenaline/adrenaline.skprx",
     "ux0:pspemu/adrenaline/adrenaline.skprx",
     NULL,
 };
 
 char *special_user_plugins[] = {
     "ur0:tai/henkaku.suprx",
+    "ux0:adrenaline/adrenaline.suprx",
     "ux0:app/MLCL00001/henkaku.suprx",
-    "vs0:sys/external/libpgf.suprx",
     "ux0:pspemu/adrenaline/adrenaline.suprx",
+    "vs0:sys/external/libpgf.suprx",
     NULL,
 };
 
