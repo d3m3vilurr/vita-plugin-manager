@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <psp2/kernel/processmgr.h>
+#include <psp2/power.h>
 #include <psp2/ctrl.h>
 
 #include "console.h"
@@ -205,11 +206,9 @@ int main() {
     // backup orig setting
 
     while (main_menu() != EXIT);
-    if (reload_config() < 0) {
+    if (scePowerRequestColdReset() < 0) {
         // something wrong
-        POPUP("RELOAD ERROR!");
-    } else {
-        POPUP(menu_strings.succ_reload_config);
+        POPUP("REBOOT ERROR!");
     }
     sceKernelDelayThread(1000000);
     sceKernelExitProcess(0);

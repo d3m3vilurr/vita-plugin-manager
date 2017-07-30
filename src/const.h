@@ -15,7 +15,6 @@ menu_strings_t menu_strings = {
     "Cancel",
     "Back",
     "Exit",
-    "taiHEN config.txt reloaded",
 };
 
 #endif

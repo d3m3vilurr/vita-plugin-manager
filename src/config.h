@@ -17,5 +17,4 @@ int append_group(config_t *config, config_group *group);
 int remove_group(config_t *config, config_group *group);
 int parse_config(config_t *config);
 int store_config(config_t *config);
-int reload_config();
 #endif

@@ -70,6 +70,7 @@ target_link_libraries(${PROJECT_NAME}.elf
     -lSceCtrl_stub
     -lScePgf_stub
     -lSceShellSvc_stub
+    -lScePower_stub
     -ltaihen_stub
 )
 

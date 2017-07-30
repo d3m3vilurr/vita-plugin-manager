@@ -27,7 +27,6 @@ typedef struct {
     char *cancel;
     char *back;
     char *exit;
-    char *succ_reload_config;
 } menu_strings_t;
 
 typedef struct {

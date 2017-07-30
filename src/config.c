@@ -147,10 +147,3 @@ int store_config(config_t *config) {
     fclose(fp);
     return 0;
 }
-
-int reload_config() {
-    //mvdir(config_filepath, config_bak_filepath);
-    //taiReloadConfig();
-    //mvdir(config_bak_filepath, config_filepath);
-    return taiReloadConfig();
-}
